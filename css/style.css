@@ -1,0 +1,42 @@
+:root {
+  --clr-soft-blue: 231 69% 60%;
+  --clr-soft-red: 0 94% 66%;
+  --clr-grayish-blue: 229 8% 60%;
+  --clr-vd-blue: 229 31% 21%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 3.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  padding-inline: 3.2rem;
+}
+.header,
+.main,
+.footer {
+  width: 100%;
+}
