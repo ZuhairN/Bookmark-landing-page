@@ -37,10 +37,11 @@
         <li><a href="#">Pricing</a></li>
         <li><a href="#">Contact</a></li>
         <li><a class="nav__login" href="#">Login</a></li>
+        <div class="header__media flex">
+          <i class="fa-brands fa-facebook-square fa-xl"></i><i class="fa-brands fa-twitter fa-xl"></i>
+        </div>
       </ul>
-      <div class="header__media flex">
-        <i class="fa-brands fa-facebook-square fa-xl"></i><i class="fa-brands fa-twitter fa-xl"></i>
-      </div>
+    
     </nav>
 
   </header>
@@ -68,16 +69,16 @@
         <p class="para">Our aim is to make it quick and easy for you to access your favourite websites.
           Your bookmarks sync between your devices so you can access them on the go.</p>
       </div>
-      <ul class="features__tabs container flex">
-        <li class="features__list active"><a href="">Simple Bookmarking</a></li>
-        <li class="features__list"><a href="">Speedy Searching</a></li>
-        <li class="features__list"><a href="">Easy Sharing</a></li>
+      <ul class="features__tab container flex">
+        <li class="features__list list-1 active"><a href="">Simple Bookmarking</a></li>
+        <li class="features__list list-2"><a href="">Speedy Searching</a></li>
+        <li class="features__list list-3"><a href="">Easy Sharing</a></li>
       </ul>
 
       <div class="illustration flex">
 
-        <div class="illustration__tab tab-1 tabflex">
-          <div class="illustration__view tab__view tab-1__view container">
+        <div class="illustration__tab tab-1 active flex">
+          <div class="illustration__view tab__view  flex container">
             <img class="illustration__img" src="./images/illustration-features-tab-1.svg" alt="illustration-view-1">
           </div>
           <div class="content container flex">
@@ -89,7 +90,7 @@
         </div>
 
         <div class="illustration__tab tab-2 flex">
-          <div class="illustration__view tab__view tab-2__view container">
+          <div class="illustration__view tab__view flex container">
             <img class="illustration__img" src="./images/illustration-features-tab-2.svg" alt="illustration-view-2">
           </div>
           <div class="content container flex">
@@ -102,7 +103,7 @@
         </div>
 
         <div class="illustration__tab tab-3 flex">
-          <div class="illustration__view tab__view tab-3__view container">
+          <div class="illustration__view tab__view flex container">
             <img class="illustration__img" src="./images/illustration-features-tab-3.svg" alt="illustration-view-3">
           </div>
           <div class="content container flex">
@@ -167,41 +168,35 @@
           to email us.</p>
       </div>
       <ul class="FAQ__list flex">
-        <li class="FAQ__tab flex active">
-          <div class="FAQ__question flex">
+        <li class="FAQ__tab flex ">
+          <div class="FAQ__question Q-1 flex">
             <h4 class="FAQ__Q">What is Bookmark?</h4>
             <i class="FAQ__open fa-solid fa-angle-down fa-xl"></i>
           </div>
-          <div class="FAQ__answer">
-            <p class="para para--dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo
+            <p class="para para--dark FAQ__answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo
               eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.</p>
-          </div>
         </li>
         <li class="FAQ__tab flex">
-          <div class="FAQ__question flex">
+          <div class="FAQ__question Q-2 flex">
             <h4 class="FAQ__Q">How can I request a new browser?</h4>
             <i class="FAQ__open fa-solid fa-angle-down fa-xl"></i>
           </div>
-          <div class="FAQ__answer">
-            <p class="para para--dark">Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies
+            <p class="para para--dark FAQ__answer">Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies
               non ligula. Suspendisse imperdiet. Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa,
               ultricies non ligula. Suspendisse imperdie tVivamus luctus eros aliquet convallis ultricies. Mauris augue
               massa, ultricies non ligula. Suspendisse imperdiet.</p>
-          </div>
         </li>
         <li class="FAQ__tab flex">
-          <div class="FAQ__question flex">
+          <div class="FAQ__question Q-3 flex">
             <h4 class="FAQ__Q">Is there a mobile app?</h4>
             <i class="FAQ__open fa-solid fa-angle-down fa-xl"></i>
           </div>
-          <div class="FAQ__answer">
-            <p class="para para--dark">Sed consectetur quam id neque fermentum accumsan. Praesent luctus vestibulum
+            <p class="para para--dark FAQ__answer">Sed consectetur quam id neque fermentum accumsan. Praesent luctus vestibulum
               dolor, ut condimentum urna vulputate eget. Cras in ligula quis est pharetra mattis sit amet pharetra
               purus. Sed sollicitudin ex et ultricies bibendum.</p>
-          </div>
         </li>
         <li class="FAQ__tab flex">
-          <div class="FAQ__question flex">
+          <div class="FAQ__question Q-4 flex">
             <h4 class="FAQ__Q">What about other Chromium browsers?</h4>
             <i class="FAQ__open fa-solid fa-angle-down fa-xl"></i>
           </div>
