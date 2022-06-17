@@ -1,11 +1,8 @@
-:root {
-  --clr-soft-blue: 231 69% 60%;
-  --clr-soft-red: 0 94% 66%;
-  --clr-grayish-blue: 229 8% 60%;
-  --clr-vd-blue: 229 31% 21%;
-  --clr-white: 0 0% 100%;
-  --clr-bg-blue: 231 69% 60%;
-}
+$clr-soft-blue: #5368df;
+$clr-soft-red: #fa5757;
+$clr-grayish-blue: #9194a1;
+$clr-vd-blue: #252b46;
+$clr-white: #ffffff;
 
 html {
   font-size: 62.5%;
@@ -27,20 +24,22 @@ img {
   max-width: 100%;
 }
 
-.flex {
+@mixin flex($direct: column, $justify: center, $align: center, $gap: 1.6rem) {
   display: flex;
-  gap: var(--gap, 1rem);
-  flex-direction: column;
-  align-items: center;
+  flex-direction: $direct;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
 }
 
-.container {
-  padding-inline: 3.2rem;
+@mixin container($p-inline: 3.2rem, $p-block: 0) {
+  padding-inline: $p-inline;
+  padding-block: $p-block;
 }
 
-.content {
-  --gap: 1.4rem;
-}
+// .content {
+//   --gap: 1.4rem;
+// }
 
 .header,
 .main,
@@ -49,24 +48,42 @@ img {
 }
 
 .body {
-  --gap: 7rem;
-  color: hsl(var(--clr-vd-blue));
-}
-.main {
-  --gap: 15rem;
-  margin-bottom: 5rem;
+  @include flex($gap: 7rem);
   text-align: center;
 }
-.header__nav {
-  flex-direction: row;
+
+.main {
+  @include flex($gap: 15rem);
+  //   margin-bottom: 5rem;
 }
+
 .nav {
-  justify-content: space-between;
-  text-transform: uppercase;
+  @include flex($justify: space-between);
+  @include container($p-block: 4rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   letter-spacing: 3px;
-}
-.nav__menu {
-  cursor: pointer;
+  text-transform: uppercase;
+  z-index: 100;
+  background-color: $clr-white;
+  &__menu {
+  }
+  &__menu-icon {
+    display: none;
+  }
+  &__logo {
+    cursor: pointer;
+  }
+  &__list {
+    @include flex();
+  }
+  &__login {
+  }
+  &__media {
+    display: none;
+  }
 }
 /* -------------------illustration------------------- */
 .illustration__view {
@@ -87,7 +104,7 @@ img {
   left: 0;
   border-radius: 0 75% 12rem 0;
   z-index: -1;
-  background-color: hsl(var(--clr-bg-blue));
+  background-color: $clr-soft-blue;
 }
 .hero__view::after {
   top: 22%;
@@ -126,14 +143,14 @@ img {
 }
 .para {
   font-size: 1.6rem;
-  color: hsl(var(--clr-grayish-blue));
+  color: $clr-grayish-blue;
   line-height: 1.5;
 }
 .para--sm {
   font-size: 1.4rem;
 }
 .para--dark {
-  color: hsl(var(--clr-vd-blue) / 0.7);
+  color: rgba($clr-vd-blue, 0.7);
   font-size: 1.5rem;
 }
 .hero {
@@ -150,40 +167,40 @@ img {
   gap: 1.6rem;
 }
 .btn {
-  background-color: hsl(var(--clr-bg-blue));
-  color: hsl(var(--clr-white));
+  background-color: $clr-soft-blue;
+  color: $clr-white;
   font-size: 1.4rem;
   font-weight: 500;
   padding-block: 1.2rem;
   border-radius: 5px;
-  border: 3px solid hsl(var(--clr-bg-blue));
+  border: 3px solid $clr-soft-blue;
   cursor: pointer;
 }
 .btn:hover {
-  background-color: hsl(var(--clr-white));
-  color: hsl(var(--clr-bg-blue));
+  background-color: $clr-white;
+  color: $clr-soft-blue;
 }
 .btn--white {
-  background-color: hsl(var(--clr-white));
-  color: hsl(var(--clr-vd-blue) / 0.8);
-  border-color: hsl(var(--clr-white));
-  box-shadow: 0 3px 5px 3px hsl(var(--clr-soft-blue) / 0.1);
+  background-color: $clr-white;
+  color: rgba($clr-vd-blue, 0.8);
+  border-color: $clr-white;
+  box-shadow: 0 3px 5px 3px rgba($clr-soft-blue, 0.1);
 }
 .btn--white:hover {
-  color: hsl(var(--clr-vd-blue) / 0.8);
-  border-color: hsl(var(--clr-vd-blue) / 0.8);
+  color: rgba($clr-vd-blue, 0.8);
+  border-color: rgba($clr-vd-blue, 0.8);
 }
 .btn--red {
   border: none;
-  background-color: hsl(var(--clr-soft-red));
+  background-color: $clr-soft-red;
   padding-block: 1em;
-  border: 3px solid hsl(var(--clr-bg-blue));
+  border: 3px solid $clr-soft-blue;
   letter-spacing: 1px;
 }
 .btn--red:hover {
-  background-color: hsl(var(--clr-white));
-  color: hsl(var(--clr-soft-red));
-  border-color: hsl(var(--clr-soft-red));
+  background-color: $clr-white;
+  color: $clr-soft-red;
+  border-color: $clr-soft-red;
 }
 .btn--info {
   padding-inline: 1.8rem;
@@ -197,12 +214,12 @@ img {
   width: 100%;
 }
 .features__tab > * {
-  border-bottom: 1px solid hsl(var(--clr-grayish-blue) / 0.3);
+  border-bottom: 1px solid rgba($clr-grayish-blue, 0.3);
   padding-block: 2rem;
   width: 100%;
 }
 .features__tab > :first-child {
-  border-top: 1px solid hsl(var(--clr-grayish-blue) / 0.3);
+  border-top: 1px solid rgba($clr-grayish-blue, 0.3);
 }
 .tab__view {
   margin-block: 3.2rem 8rem;
@@ -210,13 +227,13 @@ img {
 
 .features__list {
   position: relative;
-  color: hsl(var(--clr-vd-blue) / 0.7);
+  color: rgba($clr-vd-blue, 0.7);
 }
 .features__list.active {
-  color: hsl(var(--clr-vd-blue));
+  color: $clr-vd-blue;
 }
 .features__list:not(.active) a:hover {
-  color: hsl(var(--clr-soft-red));
+  color: $clr-soft-red;
 }
 .features__list::after {
   content: '';
@@ -227,7 +244,7 @@ img {
   width: 46%;
   height: 4px;
   transform: scaleX(0);
-  background-color: hsl(var(--clr-soft-red));
+  background-color: $clr-soft-red;
   transition: all 250ms ease-out;
   opacity: 0.1;
 }
@@ -240,7 +257,7 @@ img {
   --gap: 4rem;
 }
 .extension__card {
-  box-shadow: 0 7px 7px 3px hsl(var(--clr-soft-blue) / 0.1);
+  box-shadow: 0 7px 7px 3px rgba($clr-soft-blue, 0.1);
   border-radius: 10px;
   padding-block: 5.6rem 2.4rem;
   --gap: 3.2rem;
@@ -264,7 +281,7 @@ img {
   --gap: 2.4rem;
 }
 .FAQ__tab {
-  border-bottom: 1px solid hsl(var(--clr-grayish-blue) / 0.3);
+  border-bottom: 1px solid rgba($clr-grayish-blue, 0.3);
 }
 .FAQ__tab.active .FAQ__answer {
   transform: scale(1);
@@ -273,7 +290,7 @@ img {
   padding-bottom: 2.4rem;
 }
 .FAQ__tab.active .FAQ__open {
-  color: hsl(var(--clr-soft-red));
+  color: $clr-soft-red;
   transform: rotate(540deg);
 }
 
@@ -289,10 +306,10 @@ img {
   pointer-events: none;
 }
 .FAQ__question:hover .FAQ__Q {
-  color: hsl(var(--clr-soft-red));
+  color: $clr-soft-red;
 }
 .FAQ__open {
-  color: hsl(var(--clr-soft-blue));
+  color: $clr-soft-blue;
   transition: all 250ms linear;
 }
 .FAQ__answer {
@@ -304,10 +321,13 @@ img {
 }
 /* ------------------footer------------------ */
 .footer {
-  color: hsl(var(--clr-white));
+  color: $clr-white;
+}
+.footer__logo > g > path {
+  fill: $clr-white;
 }
 .contact {
-  background-color: hsl(var(--clr-soft-blue));
+  background-color: $clr-soft-blue;
   padding-block: 7rem;
   --gap: 4rem;
   text-align: center;
@@ -328,13 +348,13 @@ img {
   width: 100%;
 }
 .contact__email {
-  color: hsl(var(--clr-grayish-blue));
+  color: $clr-grayish-blue;
   padding-inline: 2rem;
   border: none;
   border-radius: 5px;
 }
 .footer__nav {
-  background-color: hsl(var(--clr-vd-blue));
+  background-color: $clr-vd-blue;
   --gap: 4.8rem;
   font-size: 1.6rem;
   padding-block: 5rem;
@@ -350,100 +370,83 @@ img {
   cursor: pointer;
 }
 .footer__list :hover {
-  color: hsl(var(--clr-soft-red));
+  color: $clr-soft-red;
 }
 .footer__media :hover {
-  color: hsl(var(--clr-soft-red));
+  color: $clr-soft-red;
 }
 .illustration__tab {
   --gap: 4.8rem;
 }
 
 @media (max-width: 55em) {
-  .header__nav {
-    flex-direction: column;
-  }
-  .header__logo,
-  .nav__menu {
-    z-index: 1000;
-  }
-  .header__media {
-    display: none;
-    margin-top: auto;
-  }
-  .header__list {
-    position: fixed;
-    font-weight: 400;
-    padding: 0 3.2rem 5rem;
-    font-size: 2rem;
-    color: hsl(var(--clr-white));
-    --gap: 0;
-    top: 10.5rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    background-color: hsl(var(--clr-vd-blue) / 0.95);
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
+  .nav {
     transition: all 250ms ease-out;
+
+    &__menu {
+      @include flex($direct: row, $justify: space-between);
+      width: 100%;
+      transition: all 250ms ease-out;
+    }
+    &__menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+    &__logo {
+    }
+    &__list {
+      gap: 0;
+      position: fixed;
+      top: 10.5rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      font-size: 2rem;
+      font-weight: 400;
+      @include container($p-block: 0 5rem);
+      color: $clr-white;
+      background-color: rgba($clr-vd-blue, 0.95);
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: all 250ms ease-out;
+    }
+    &__list > *:not(&__media) {
+      padding-block: 2.6rem;
+      border-top: 1px solid rgba($clr-grayish-blue, 0.3);
+      width: 100%;
+      text-align: center;
+    }
+    &__login {
+      display: block;
+      padding: 1.3rem;
+      font-weight: 500;
+      border: 3px solid $clr-white;
+      border-radius: 5px;
+    }
+    &__media {
+      @include flex($direct: row, $gap: 4rem);
+      color: $clr-white;
+      margin-top: auto;
+    }
+    &.active {
+      background-color: rgba($clr-vd-blue, 0.95);
+    }
+    &.active &__list {
+      opacity: 1;
+      transform: scale(1);
+    }
+    &.active &__logo {
+      > g > path,
+      circle {
+        fill: $clr-white;
+      }
+      circle + path {
+        fill: rgba($clr-vd-blue, 0.95);
+      }
+    }
   }
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 4rem 3.2rem;
-    background-color: hsl(var(--clr-white));
-    z-index: 100;
-    flex-direction: row;
-    justify-content: space-between;
-    align-self: stretch;
-    transition: all 250ms ease-out;
-  }
-  .header__nav.active .menu {
-    background-color: hsl(var(--clr-vd-blue) / 0.95);
-  }
-  .nav__login {
-    display: block;
-    padding: 1.3rem;
-    font-weight: 500;
-    border: 3px solid hsl(var(--clr-white));
-    border-radius: 5px;
-  }
-  .header__list > *:not(.header__media) {
-    padding-block: 2.6rem;
-    border-top: 1px solid hsl(var(--clr-grayish-blue) / 0.3);
-    width: 100%;
-    text-align: center;
-  }
-  .header__nav.active .header__media {
-    display: flex;
-    color: hsl(var(--clr-white));
-    z-index: 100000;
-    flex-direction: row;
-    --gap: 4rem;
-  }
-  .header__nav.active .header__list {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .header__nav.active .nav__menu {
-    fill: hsl(var(--clr-white));
-  }
-  .header__nav.active .header__logo > g > path {
-    fill: hsl(var(--clr-white));
-  }
-  .header__nav.active .header__logo g circle {
-    fill: hsl(var(--clr-white));
-  }
-  .header__nav.active .header__logo circle + path {
-    fill: hsl(var(--clr-vd-blue) / 0.95);
-  }
-  .footer__logo > g > path {
-    fill: hsl(var(--clr-white));
-  }
+
   .tab__btn {
     display: none;
   }

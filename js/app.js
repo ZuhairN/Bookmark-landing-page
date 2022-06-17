@@ -1,13 +1,14 @@
 'use strict';
 
-const menu = document.querySelector('.nav__menu');
+const menu = document.querySelector('.nav__menu-icon');
+const nav=document.querySelector('.nav');
 const tabs = document.querySelector('.features__tab');
 const tabsContent = document.querySelectorAll('.illustration__tab');
 const QList = document.querySelector('.FAQ__list');
 const questions = document.querySelectorAll('.FAQ__tab');
 
 menu.addEventListener('click', () => {
-  menu.parentElement.parentElement.classList.toggle('active');
+  nav.classList.toggle('active');
   if (menu.getAttribute('src').indexOf('hamb') > -1) {
     menu.setAttribute('src', './images/icon-close.svg');
   } else {
