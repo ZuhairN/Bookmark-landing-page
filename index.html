@@ -26,7 +26,7 @@
     <title>Frontend Mentor | Bookmark landing page</title>
   </head>
 
-  <body class="body">
+  <body>
     <header class="header">
       <!--container-->
       <nav class="nav">
@@ -76,31 +76,33 @@
       </nav>
     </header>
 
-    <main class="main flex">
-      <div class="hero illustration flex">
-        <div class="illustration__view hero__view container">
+    <main class="main">
+      <div class="hero">
+        <div class="hero__view">
           <img
-            class="illustration__img"
+            class="hero__img"
             src="./images/illustration-hero.svg"
             alt="illustration-hero"
           />
         </div>
-        <div class="content container flex">
-          <h1 class="heading heading--1">A Simple Bookmark Manager</h1>
-          <p class="para">
-            A clean and simple interface to organize your favourite websites.
-            Open a new browser tab and see your sites load instantly. Try it for
-            free.
-          </p>
-        </div>
-        <div class="illustration__links container">
-          <a href="" class="hero__btn btn">Get it on Chrome</a>
-          <a href="" class="hero__btn btn btn--white">Get it on Firefox</a>
+        <div class="hero__content">
+          <div class="content">
+            <h1 class="heading heading--1">A Simple Bookmark Manager</h1>
+            <p class="para">
+              A clean and simple interface to organize your favourite websites.
+              Open a new browser tab and see your sites load instantly. Try it
+              for free.
+            </p>
+          </div>
+          <div class="hero__links">
+            <a href="" class="hero__btn btn">Get it on Chrome</a>
+            <a href="" class="hero__btn btn btn--white">Get it on Firefox</a>
+          </div>
         </div>
       </div>
 
-      <div class="features flex">
-        <div class="content container flex">
+      <div class="features">
+        <div class="content">
           <h2 class="heading heading--2">Features</h2>
           <p class="para">
             Our aim is to make it quick and easy for you to access your
@@ -108,67 +110,71 @@
             can access them on the go.
           </p>
         </div>
-        <ul class="features__tab container flex">
+        <ul class="features__tab">
           <li class="features__list list-1 active">
             <a href="">Simple Bookmarking</a>
           </li>
-          <li class="features__list list-2"><a href="">Speedy Searching</a></li>
-          <li class="features__list list-3"><a href="">Easy Sharing</a></li>
+          <li class="features__list list-2">
+            <a href="">Speedy Searching</a>
+          </li>
+          <li class="features__list list-3">
+            <a href="">Easy Sharing</a>
+          </li>
         </ul>
 
-        <div class="illustration flex">
-          <div class="illustration__tab tab-1 active flex">
-            <div class="illustration__view tab__view flex container">
+        <div class="illustration">
+          <div class="illustration__tab tab-1 active">
+            <div class="illustration__view">
               <img
                 class="illustration__img"
                 src="./images/illustration-features-tab-1.svg"
                 alt="illustration-view-1"
               />
             </div>
-            <div class="content container flex">
+            <div class="content">
               <h2 class="heading heading--2">Bookmark in one click</h2>
               <p class="para">
                 Organize your bookmarks however you like. Our simple
                 drag-and-drop interface gives you complete control over how you
                 manage your favourite sites.
               </p>
-              <a href="" class="tab__btn btn btn--info">More Info</a>
+              <a href="" class="illustration__btn btn btn--info">More Info</a>
             </div>
           </div>
 
-          <div class="illustration__tab tab-2 flex">
-            <div class="illustration__view tab__view flex container">
+          <div class="illustration__tab tab-2">
+            <div class="illustration__view">
               <img
                 class="illustration__img"
                 src="./images/illustration-features-tab-2.svg"
                 alt="illustration-view-2"
               />
             </div>
-            <div class="content container flex">
+            <div class="content">
               <h2 class="heading heading--2">Intelligent search</h2>
               <p class="para">
                 Our powerful search feature will help you find saved sites in no
                 time at all. No need to trawl through all of your bookmarks.
               </p>
-              <a href="" class="tab__btn btn btn--info">More Info</a>
+              <a href="" class="illustration__btn btn btn--info">More Info</a>
             </div>
           </div>
 
-          <div class="illustration__tab tab-3 flex">
-            <div class="illustration__view tab__view flex container">
+          <div class="illustration__tab tab-3">
+            <div class="illustration__view">
               <img
                 class="illustration__img"
                 src="./images/illustration-features-tab-3.svg"
                 alt="illustration-view-3"
               />
             </div>
-            <div class="content container flex">
+            <div class="content">
               <h2 class="heading heading--2">Share your bookmarks</h2>
               <p class="para">
                 Easily share your bookmarks and collections with others. Create
                 a shareable link that you can send at the click of a button.
               </p>
-              <a href="" class="tab__btn btn btn--info">More Info</a>
+              <a href="" class="illustration__btn btn btn--info">More Info</a>
             </div>
           </div>
         </div>
