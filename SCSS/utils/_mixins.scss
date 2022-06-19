@@ -1,0 +1,32 @@
+@use './variables' as *;
+
+@mixin flex($direct: column, $justify: center, $align: center, $gap: 1.6rem) {
+    display: flex;
+    flex-direction: $direct;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin container($p-inline: 3.2rem, $p-block: 0) {
+    padding-inline: $p-inline;
+    padding-block: $p-block;
+}
+
+@mixin background($left: 0, $right: auto, $top: 17%, $t-right: 65%, $b-right: 30%, $b-left: 0, $height: 100%) {
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: $left;
+        right: $right;
+        z-index: -1;
+        background-color: $clr-soft-blue;
+        top: $top;
+        left: auto;
+        width: 80%;
+        height: $height;
+        border-radius: 0 $t-right $b-right $b-left;
+    }
+}

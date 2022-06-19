@@ -1,8 +1,5 @@
-$clr-soft-blue: #5368df;
-$clr-soft-red: #fa5757;
-$clr-grayish-blue: #9194a1;
-$clr-vd-blue: #252b46;
-$clr-white: #ffffff;
+@use './utils/' as *;
+@forward 'base';
 
 html {
   font-size: 62.5%;
@@ -25,69 +22,11 @@ img {
   max-width: 100%;
 }
 
-@mixin flex($direct: column, $justify: center, $align: center, $gap: 1.6rem) {
-  display: flex;
-  flex-direction: $direct;
-  justify-content: $justify;
-  align-items: $align;
-  gap: $gap;
+.content {
+  @include flex($gap: 1.4rem);
+  @include container();
 }
 
-@mixin container($p-inline: 3.2rem, $p-block: 0) {
-  padding-inline: $p-inline;
-  padding-block: $p-block;
-}
-
-@mixin background(
-  $left: 0,
-  $right: auto,
-  $top: 17%,
-  $t-right: 12rem,
-  $b-right: 12rem,
-  $b-left: 0,
-  $height: 100%
-) {
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: $left;
-    right: $right;
-    z-index: -1;
-    background-color: $clr-soft-blue;
-    top: $top;
-    left: auto;
-    width: 80%;
-    height: $height;
-    border-radius: 0 $t-right $b-right $b-left;
-  }
-}
-.heading {
-  font-weight: 500;
-}
-.heading--1 {
-  font-size: 3.2rem;
-  line-height: 1.3;
-}
-.heading--2 {
-  font-size: 2.4rem;
-}
-.heading--3 {
-  font-size: 2rem;
-}
-.para {
-  font-size: 1.6rem;
-  color: $clr-grayish-blue;
-  line-height: 1.5;
-}
-.para--sm {
-  font-size: 1.4rem;
-}
-.para--dark {
-  color: rgba($clr-vd-blue, 0.7);
-  font-size: 1.5rem;
-}
 .btn {
   background-color: $clr-soft-blue;
   color: $clr-white;
@@ -97,39 +36,42 @@ img {
   border-radius: 5px;
   border: 3px solid $clr-soft-blue;
   cursor: pointer;
-}
-.btn:hover {
-  background-color: $clr-white;
-  color: $clr-soft-blue;
-}
-.btn--white {
-  background-color: $clr-white;
-  color: rgba($clr-vd-blue, 0.8);
-  border-color: $clr-white;
-  box-shadow: 0 3px 5px 3px rgba($clr-soft-blue, 0.1);
-}
-.btn--white:hover {
-  color: rgba($clr-vd-blue, 0.8);
-  border-color: rgba($clr-vd-blue, 0.8);
-}
-.btn--red {
-  border: none;
-  background-color: $clr-soft-red;
-  padding-block: 1em;
-  border: 3px solid $clr-soft-blue;
-  letter-spacing: 1px;
-}
-.btn--red:hover {
-  background-color: $clr-white;
-  color: $clr-soft-red;
-  border-color: $clr-soft-red;
-}
-.btn--info {
-  padding-inline: 1.8rem;
-}
-.content {
-  @include flex($gap: 1.4rem);
-  @include container();
+  transition: all 250ms ease-out;
+
+  &:hover {
+    background-color: $clr-white;
+    color: $clr-soft-blue;
+  }
+
+  &--info {
+    padding-inline: 1.8rem;
+  }
+
+  &--white {
+    background-color: $clr-white;
+    color: rgba($clr-vd-blue, 0.8);
+    border-color: $clr-white;
+    box-shadow: 0 3px 5px 3px rgba($clr-soft-blue, 0.1);
+
+    &:hover {
+      color: rgba($clr-vd-blue, 0.8);
+      border-color: rgba($clr-vd-blue, 0.8);
+    }
+  }
+
+  &--red {
+    border: none;
+    background-color: $clr-soft-red;
+    padding-block: 1em;
+    border: 3px solid $clr-soft-blue;
+    letter-spacing: 1px;
+
+    &:hover {
+      background-color: $clr-white;
+      color: $clr-soft-red;
+      border-color: $clr-soft-red;
+    }
+  }
 }
 
 .main {
@@ -148,39 +90,44 @@ img {
   text-transform: uppercase;
   z-index: 100;
   background-color: $clr-white;
-  &__menu {
-  }
+
+  &__menu {}
+
   &__menu-icon {
     display: none;
   }
+
   &__logo {
     cursor: pointer;
   }
+
   &__list {
     @include flex();
   }
-  &__login {
-  }
+
+  &__login {}
+
   &__media {
     display: none;
   }
 }
+
 /* -------------------hero------------------- */
 .hero {
   @include flex($align: center, $gap: 7.2rem);
+
   &__view {
     position: relative;
     width: 100%;
-    @include background(
-      $left: auto,
+    @include background($left: auto,
       $right: 0,
       $top: 22%,
       $t-right: 0,
       $b-right: 0,
       $b-left: 12rem,
-      $height: 77%
-    );
+      $height: 77%);
   }
+
   &__img {
     width: 95%;
   }
@@ -188,39 +135,49 @@ img {
   &__content {
     @include flex($gap: 4.8rem);
   }
+
   &__links {
     @include flex($direct: row, $gap: 1.6rem);
     @include container();
     width: 100%;
+
     * {
       flex: 1;
     }
   }
 }
+
 .features {
   @include flex($gap: 4rem);
+
   &__tab {
     @include flex($gap: 0);
     @include container();
     align-self: stretch;
-    > * {
+
+    >* {
       border-bottom: 1px solid rgba($clr-grayish-blue, 0.3);
       padding-block: 2rem;
       width: 100%;
     }
+
     > :first-child {
       border-top: 1px solid rgba($clr-grayish-blue, 0.3);
     }
   }
+
   &__list {
     position: relative;
     color: rgba($clr-vd-blue, 0.7);
-    &:not(.active) a:hover {
+
+    &:not(&--active) a:hover {
       color: $clr-soft-red;
     }
-    &.active {
+
+    &--active {
       color: $clr-vd-blue;
     }
+
     &::after {
       content: '';
       display: block;
@@ -234,162 +191,216 @@ img {
       transition: all 250ms ease-out;
       opacity: 0.1;
     }
-    &.active::after {
+
+    &--active::after {
       transform: scaleX(1);
       opacity: 1;
     }
   }
 }
+
 // -----------------------features-illustration------------------
 .illustration {
   &__tab {
-    @include flex($gap: 4.8rem);
+    @include flex($gap: 8rem);
     position: absolute;
     transform: translateX(-100%);
     transition: all 250ms ease-out;
-    &.active {
-      display: block;
+
+    &--active {
+      display: flex;
       transform: translateX(0);
       position: relative;
     }
   }
+
   &__view {
     position: relative;
-    margin-block: 3.2rem;
-    @include background();
+    margin-top: 3.2rem;
+    width: 100%;
+    @include flex($align: start);
+    @include background($height: min(58vw, 37.2rem));
   }
+
   &__img {
+    align-self: center;
+    height: min(65vw, 42rem);
     width: min(90%, 57.7rem);
     object-fit: contain;
   }
 }
 
-/* ----------------------------------------- */
+/* -----------------------extension--------------------- */
 
 .extension {
-  --gap: 4rem;
+  @include flex($gap: 4rem);
+  @include container();
+
+  &__links {
+    @include flex($gap: 4rem);
+  }
 }
-.extension__card {
+
+.card {
+  @include flex($gap: 4rem);
   box-shadow: 0 7px 7px 3px rgba($clr-soft-blue, 0.1);
   border-radius: 10px;
   padding-block: 5.6rem 2.4rem;
-  --gap: 3.2rem;
+
+  &__content {
+    @include flex($gap: 1rem);
+  }
+
+  &__button {
+    @include flex($gap: 2.4rem);
+  }
+
+  &__btn {
+    align-self: stretch;
+    margin-inline: 2.4rem;
+  }
 }
-.card__btn {
-  align-self: stretch;
-  margin-inline: 2.4rem;
-}
-.card__content {
-  --gap: 1rem;
-}
-.card__button {
-  --gap: 2.4rem;
-}
+
 /* ------------FAQ------------ */
 .FAQ {
-  --gap: 4rem;
+  @include flex($gap: 8rem);
+  @include container();
   font-size: 1.5rem;
-}
-.FAQ__list {
-  --gap: 2.4rem;
-}
-.FAQ__tab {
-  border-bottom: 1px solid rgba($clr-grayish-blue, 0.3);
-}
-.FAQ__tab.active .FAQ__answer {
-  transform: scale(1);
-  opacity: 1;
-  height: auto;
-  padding-bottom: 2.4rem;
-}
-.FAQ__tab.active .FAQ__open {
-  color: $clr-soft-red;
-  transform: rotate(540deg);
+
+  &__list {
+    @include flex($gap: 2.4rem);
+  }
 }
 
-.FAQ__question {
-  align-self: stretch;
-  --gap: 0;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
+.tab {
+  @include flex($align: stretch, $gap: 2.4rem);
+  border-bottom: 1px solid rgba($clr-grayish-blue, 0.3);
+
+  &__question {
+    @include flex($direct: row, $justify: space-between);
+    cursor: pointer;
+
+    >* {
+      pointer-events: none;
+    }
+  }
+
+  &__question:hover &__Q {
+    color: $clr-soft-red;
+  }
+
+  &__open {
+    color: $clr-soft-blue;
+    transition: all 250ms linear;
+  }
+
+  &__answer {
+    text-align: left;
+    height: 0;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: all 250ms ease-out;
+    transform-origin: top;
+  }
+
+  &--active &__answer {
+    transform: scale(1);
+    opacity: 1;
+    height: auto;
+    padding-bottom: 2.4rem;
+  }
+
+  &--active &__open {
+    color: $clr-soft-red;
+    transform: rotate(540deg);
+  }
+
+  &--active &__question {
+    align-self: stretch;
+    --gap: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
 }
-.FAQ__question > * {
-  pointer-events: none;
-}
-.FAQ__question:hover .FAQ__Q {
-  color: $clr-soft-red;
-}
-.FAQ__open {
-  color: $clr-soft-blue;
-  transition: all 250ms linear;
-}
-.FAQ__answer {
-  height: 0;
-  transform: scaleY(0);
-  opacity: 0;
-  transition: all 250ms ease-out;
-  transform-origin: top;
-}
+
 /* ------------------footer------------------ */
+.contact {
+  @include flex($gap: 4rem);
+  @include container($p-block: 7rem);
+  background-color: $clr-soft-blue;
+  text-align: center;
+
+  &__record {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 5px;
+  }
+
+  &__form {
+    @include flex($align: stretch);
+    width: 100%;
+
+    >* {
+      width: 100%;
+      min-height: 5.4rem;
+      font-size: 1.5rem;
+      font-family: inherit;
+    }
+
+  }
+
+  &__email {
+    color: $clr-grayish-blue;
+    padding-inline: 2rem;
+    border-style: none;
+    border-radius: 5px;
+  }
+}
+
 .footer {
   color: $clr-white;
-}
-.footer__logo > g > path {
-  fill: $clr-white;
-}
-.contact {
-  background-color: $clr-soft-blue;
-  padding-block: 7rem;
-  --gap: 4rem;
-  text-align: center;
-}
-.contact__record {
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 5px;
-}
-.contact__form {
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  gap: 1.6rem;
-  width: 100%;
-}
-.contact__form > * {
-  width: 100%;
-}
-.contact__email {
-  color: $clr-grayish-blue;
-  padding-inline: 2rem;
-  border: none;
-  border-radius: 5px;
-}
-.footer__nav {
-  background-color: $clr-vd-blue;
-  --gap: 4.8rem;
-  font-size: 1.6rem;
-  padding-block: 5rem;
-}
-.footer__list {
-  --gap: 4rem;
-}
-.footer__media {
-  height: 2.8rem;
-  flex-direction: row;
-  margin-top: 0.8rem;
-  --gap: 4rem;
-  cursor: pointer;
-}
-.footer__list :hover {
-  color: $clr-soft-red;
-}
-.footer__media :hover {
-  color: $clr-soft-red;
+
+  &__nav {
+    @include flex($gap: 4.8rem);
+    @include container($p-block: 5.4rem);
+    background-color: $clr-vd-blue;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__logo {
+    >g>path {
+      fill: $clr-white;
+    }
+  }
+
+  &__list {
+    @include flex($gap: 4rem);
+
+    :hover {
+      color: $clr-soft-red;
+    }
+  }
+
+  &__media {
+    @include flex($direct: row, $gap: 4.8rem);
+    height: 2.8rem;
+    flex-direction: row;
+    margin-top: 0.8rem;
+    --gap: 4rem;
+    cursor: pointer;
+
+    :hover {
+      color: $clr-soft-red;
+    }
+  }
 }
 
-@media (max-width: 55em) {
+@media (max-width: 44em) {
   .nav {
     transition: all 250ms ease-out;
 
@@ -398,12 +409,14 @@ img {
       width: 100%;
       transition: all 250ms ease-out;
     }
+
     &__menu-icon {
       display: block;
       cursor: pointer;
     }
-    &__logo {
-    }
+
+    &__logo {}
+
     &__list {
       gap: 0;
       position: fixed;
@@ -421,12 +434,14 @@ img {
       transform-origin: top;
       transition: all 250ms ease-out;
     }
-    &__list > *:not(&__media) {
+
+    &__list>*:not(&__media) {
       padding-block: 2.6rem;
       border-top: 1px solid rgba($clr-grayish-blue, 0.3);
       width: 100%;
       text-align: center;
     }
+
     &__login {
       display: block;
       padding: 1.3rem;
@@ -434,28 +449,35 @@ img {
       border: 3px solid $clr-white;
       border-radius: 5px;
     }
+
     &__media {
       @include flex($direct: row, $gap: 4rem);
       color: $clr-white;
       margin-top: auto;
     }
-    &.active {
+
+    &--active {
       background-color: rgba($clr-vd-blue, 0.95);
     }
-    &.active &__list {
+
+    &--active &__list {
       opacity: 1;
       transform: scale(1);
     }
-    &.active &__logo {
-      > g > path,
+
+    &--active &__logo {
+
+      >g>path,
       circle {
         fill: $clr-white;
       }
-      circle + path {
+
+      circle+path {
         fill: rgba($clr-vd-blue, 0.95);
       }
     }
   }
+
   .illustration {
     &__btn {
       display: none;

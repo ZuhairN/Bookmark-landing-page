@@ -1,0 +1,34 @@
+@use '../utils/' as *;
+
+.heading {
+    font-weight: 500;
+
+    &--1 {
+        font-size: 3.2rem;
+        line-height: 1.3;
+    }
+
+    &--2 {
+        font-size: 2.4rem;
+        line-height: 1.2;
+    }
+
+    &--3 {
+        font-size: 2rem;
+    }
+}
+
+.para {
+    font-size: 1.6rem;
+    color: $clr-grayish-blue;
+    line-height: 1.5;
+
+    &--sm {
+        font-size: 1.4rem;
+    }
+
+    &--dark {
+        color: rgba($clr-vd-blue, 0.7);
+        font-size: 1.5rem;
+    }
+}
