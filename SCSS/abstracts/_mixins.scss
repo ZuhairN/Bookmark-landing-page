@@ -1,4 +1,4 @@
-@use './variables' as *;
+@use './colors' as *;
 
 @mixin flex($direct: column, $justify: center, $align: center, $gap: 1.6rem) {
     display: flex;
@@ -13,7 +13,7 @@
     padding-block: $p-block;
 }
 
-@mixin background($left: 0, $right: auto, $top: 17%, $t-right: 65%, $b-right: 30%, $b-left: 0, $height: 100%) {
+@mixin background($left: 0, $right: auto, $top: 17%, $t-right: 32vw, $b-right: 32vw, $b-left: 0, $height: 100%) {
     &::after {
         content: '';
         display: block;
@@ -28,5 +28,11 @@
         width: 80%;
         height: $height;
         border-radius: 0 $t-right $b-right $b-left;
+    }
+}
+
+@mixin breakpoint ($min_max, $size) {
+    @media ($min_max: $size) {
+        @content;
     }
 }

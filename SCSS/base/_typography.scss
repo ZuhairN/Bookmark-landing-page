@@ -1,4 +1,4 @@
-@use '../utils/' as *;
+@use '../abstracts' as *;
 
 .heading {
     font-weight: 500;
@@ -9,7 +9,7 @@
     }
 
     &--2 {
-        font-size: 2.4rem;
+        font-size: clamp(2.4rem, 1.6rem + 2.6vw, 4rem);
         line-height: 1.2;
     }
 
