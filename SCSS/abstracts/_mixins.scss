@@ -11,9 +11,13 @@
 @mixin container($p-inline: 3.2rem, $p-block: 0) {
     padding-inline: $p-inline;
     padding-block: $p-block;
+
+    @include breakpoint('min-width: 41em') {
+        padding-inline: 6vw;
+    }
 }
 
-@mixin background($left: 0, $right: auto, $top: 17%, $t-right: 32vw, $b-right: 32vw, $b-left: 0, $height: 100%) {
+@mixin background($left: -3.2rem, $right: auto, $top: 22%, $t-right: 100vw, $b-right: 100vw, $b-left: 0, $width: 85%, $height: 100%) {
     &::after {
         content: '';
         display: block;
@@ -24,15 +28,14 @@
         z-index: -1;
         background-color: $clr-soft-blue;
         top: $top;
-        left: auto;
-        width: 80%;
+        width: $width;
         height: $height;
         border-radius: 0 $t-right $b-right $b-left;
     }
 }
 
-@mixin breakpoint ($min_max, $size) {
-    @media ($min_max: $size) {
+@mixin breakpoint ($size) {
+    @media ($size) {
         @content;
     }
 }
