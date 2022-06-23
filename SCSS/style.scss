@@ -24,7 +24,7 @@ img {
 }
 
 .content {
-  @include flex($gap: 1.4rem);
+  @include flex($align: stretch, $gap: 1.4rem);
 }
 
 .btn {
@@ -152,6 +152,7 @@ img {
 }
 
 .features {
+  width: 100%;
   @include flex($gap: 4rem);
 
   &__tab {
@@ -608,12 +609,96 @@ img {
     }
   }
 
+  .features {
+    &__intro {
+      max-width: 48rem;
+    }
+
+    &__tab {
+      flex-direction: row;
+      align-self: center;
+      // margin-inline: auto;
+      width: min(100%, 75rem);
+
+    }
+
+    &__list {
+      padding-bottom: 2.8rem;
+    }
+
+    &__list:first-of-type {
+      border-top: none;
+    }
+
+    &__list::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+
+  .illustration {
+    width: 100%;
+    flex-direction: row;
+    justify-content: start;
+    gap: 6vw;
+
+    &__img {
+      align-self: flex-end;
+      position: absolute;
+      height: min(40vw, 45rem);
+      // width: min(100%, 50rem);
+      max-width: min-content;
+      padding: 0;
+    }
+
+    &__view {
+      height: min(35vw, 39rem);
+      max-height: max-content;
+      margin-top: 0;
+      max-width: 41vw;
+
+      &::after {
+        top: 30%;
+        height: 75%;
+        width: 100%;
+        left: -6vw;
+      }
+    }
+
+    >* {
+      flex-basis: 100%;
+    }
+
+    &__container {
+      min-width: 30rem;
+      max-width: 40rem;
+      text-align: left;
+      align-self: center;
+      @include flex($align: flex-start, $gap: 3.2rem);
+    }
+
+    &__content {
+      transform: translateY(-20%);
+    }
+
+    &__content.active {
+      transform: translateY(0);
+    }
+  }
+
   .extension {
     gap: 6.4rem;
+
+    &__intro {
+      max-width: 48rem;
+    }
 
     &__links {
       flex-direction: row;
       align-items: start;
+
+      gap: 3.2rem;
 
       > :nth-child(2) {
         margin-top: 4rem;
@@ -629,9 +714,13 @@ img {
     max-width: 57rem;
     gap: 5rem;
 
+    &__intro {
+      max-width: 48rem;
+    }
+
     &__list {
       >* {
-        padding-right: 1.6rem;
+        padding-right: 2rem;
       }
 
       >:first-child {

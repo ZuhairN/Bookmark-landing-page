@@ -125,7 +125,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 1.4rem;
 }
 
@@ -274,6 +274,7 @@ img {
 }
 
 .features {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -777,12 +778,85 @@ img {
     padding-inline: min(1.4vw, 2rem);
   }
 
+  .features__intro {
+    max-width: 48rem;
+  }
+  .features__tab {
+    flex-direction: row;
+    align-self: center;
+    width: min(100%, 75rem);
+  }
+  .features__list {
+    padding-bottom: 2.8rem;
+  }
+  .features__list:first-of-type {
+    border-top: none;
+  }
+  .features__list::after {
+    left: 0;
+    width: 100%;
+  }
+
+  .illustration {
+    width: 100%;
+    flex-direction: row;
+    justify-content: start;
+    gap: 6vw;
+  }
+  .illustration__img {
+    align-self: flex-end;
+    position: absolute;
+    height: min(40vw, 45rem);
+    max-width: -webkit-min-content;
+    max-width: -moz-min-content;
+    max-width: min-content;
+    padding: 0;
+  }
+  .illustration__view {
+    height: min(35vw, 39rem);
+    max-height: -webkit-max-content;
+    max-height: -moz-max-content;
+    max-height: max-content;
+    margin-top: 0;
+    max-width: 41vw;
+  }
+  .illustration__view::after {
+    top: 30%;
+    height: 75%;
+    width: 100%;
+    left: -6vw;
+  }
+  .illustration > * {
+    flex-basis: 100%;
+  }
+  .illustration__container {
+    min-width: 30rem;
+    max-width: 40rem;
+    text-align: left;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3.2rem;
+  }
+  .illustration__content {
+    transform: translateY(-20%);
+  }
+  .illustration__content.active {
+    transform: translateY(0);
+  }
+
   .extension {
     gap: 6.4rem;
+  }
+  .extension__intro {
+    max-width: 48rem;
   }
   .extension__links {
     flex-direction: row;
     align-items: start;
+    gap: 3.2rem;
   }
   .extension__links > :nth-child(2) {
     margin-top: 4rem;
@@ -795,8 +869,11 @@ img {
     max-width: 57rem;
     gap: 5rem;
   }
+  .FAQ__intro {
+    max-width: 48rem;
+  }
   .FAQ__list > * {
-    padding-right: 1.6rem;
+    padding-right: 2rem;
   }
   .FAQ__list > :first-child {
     padding-top: 2.4rem;
