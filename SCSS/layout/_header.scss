@@ -1,0 +1,112 @@
+@use '../abstracts/' as *;
+
+.nav {
+    @include flex($justify: space-between);
+    @include container($p-block: 4rem);
+    @include fixed($bottom: auto);
+    background-color: $clr-white;
+    text-transform: uppercase;
+    z-index: 1000;
+
+    @include breakpoint(mobile) {
+        letter-spacing: 3px;
+        transition: all 250ms ease-out;
+
+        &.active {
+            background-color: rgba($clr-vd-blue, 0.95);
+        }
+
+        &.active &__list {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        &.active &__logo {
+            * {
+                fill: $clr-white;
+            }
+
+            circle+path {
+                fill: rgba($clr-vd-blue, 0.95);
+            }
+        }
+    }
+
+    @include breakpoint(desktop) {
+        flex-direction: row;
+        padding-block: 3.2rem;
+        margin-inline: auto;
+        letter-spacing: 1px;
+    }
+
+    &__menu {
+        @include breakpoint(mobile) {
+            @include flex($direct: row, $justify: space-between);
+            width: 100%;
+        }
+    }
+
+    &__menu-icon {
+        display: none;
+
+        @include breakpoint(mobile) {
+            display: block;
+            cursor: pointer;
+        }
+    }
+
+    &__list {
+        @include flex($gap: 0);
+        overflow-y: hidden;
+
+        @include breakpoint(mobile) {
+            @include container($p-block: 0 5rem);
+            @include fixed($top: 10.5rem);
+            font-size: 2rem;
+            color: $clr-white;
+            background-color: rgba($clr-vd-blue, 0.95);
+            opacity: 0;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: all 250ms ease-out;
+
+            &>*:not(:last-child) {
+                align-self: stretch;
+                padding-block: 2.6rem;
+                text-align: center;
+                border-top: 1px solid rgba($clr-grayish-blue, 0.3);
+            }
+        }
+
+        @include breakpoint(desktop) {
+            flex-direction: row;
+            justify-content: space-between;
+            width: min(62%, 55rem);
+            font-size: 1.4rem;
+        }
+    }
+
+    &__login {
+        display: block;
+        font-weight: 500;
+        border-radius: 5px;
+        padding-block: 1.3rem;
+        border: 3px solid $clr-white;
+
+        @include breakpoint(desktop) {
+            @include btn($clr-white, $clr-soft-red);
+            transition: all 250ms ease-in-out;
+            padding: 1.1rem 3.2rem;
+        }
+    }
+
+    &__media {
+        display: none;
+
+        @include breakpoint(mobile) {
+            @include flex($direct: row, $gap: 4rem);
+            color: $clr-white;
+            margin-top: auto;
+        }
+    }
+}

@@ -12,9 +12,29 @@
     padding-inline: $p-inline;
     padding-block: $p-block;
 
-    @include breakpoint('min-width: 41em') {
+    @include breakpoint(desktop) {
         padding-inline: 6vw;
     }
+}
+
+@mixin btn($clr, $bg-clr, $clr-hvr: $bg-clr, $bg-hvr: $clr) {
+    color: $clr;
+    background-color: $bg-clr;
+    border: 3px solid $bg-clr;
+
+    &:hover {
+        color: $clr-hvr;
+        background-color: $bg-hvr;
+        border-color: $clr-hvr;
+    }
+}
+
+@mixin fixed($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    position: fixed;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
 }
 
 @mixin background($left: -3.2rem, $right: auto, $top: 22%, $t-right: 100vw, $b-right: 100vw, $b-left: 0, $width: 85%, $height: 100%) {
@@ -35,7 +55,15 @@
 }
 
 @mixin breakpoint ($size) {
-    @media ($size) {
-        @content;
+    @if $size ==mobile {
+        @media (max-width:40.999em) {
+            @content;
+        }
+    }
+
+    @else if $size ==desktop {
+        @media (min-width:41em) {
+            @content;
+        }
     }
 }

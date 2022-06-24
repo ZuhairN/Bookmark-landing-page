@@ -8,7 +8,7 @@ const contents = document.querySelectorAll('.illustration__content');
 const QList = document.querySelector('.FAQ__list');
 
 menu.addEventListener('click', () => {
-  nav.classList.toggle('nav--active');
+  nav.classList.toggle('active');
   if (menu.getAttribute('src').indexOf('hamb') > -1) {
     menu.setAttribute('src', './images/icon-close.svg');
   } else {

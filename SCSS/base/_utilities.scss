@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+
+%content {
+    @include flex($align: stretch, $gap: 1.4rem);
+    // @include breakpoint(desktop){
+    // }
+}

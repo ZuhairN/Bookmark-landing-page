@@ -1,4 +1,6 @@
-@forward 'base';
+@forward './base';
+@forward './components';
+@forward './layout';
 @use './abstracts' as *;
 
 html {
@@ -17,97 +19,16 @@ a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-}
 
-img {
-  max-width: 100%;
-}
-
-.content {
-  @include flex($align: stretch, $gap: 1.4rem);
-}
-
-.btn {
-  background-color: $clr-soft-blue;
-  color: $clr-white;
-  font-size: 1.4rem;
-  font-weight: 500;
-  padding-block: 1.2rem;
-  border-radius: 5px;
-  border: 3px solid $clr-soft-blue;
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
-
-  &:hover {
-    background-color: $clr-white;
-    color: $clr-soft-blue;
-  }
-
-  &--info {
-    padding-inline: 1.8rem;
-  }
-
-  &--white {
-    background-color: $clr-white;
-    color: rgba($clr-vd-blue, 0.8);
-    border-color: $clr-white;
-    box-shadow: 0 3px 5px 3px rgba($clr-soft-blue, 0.1);
-
+  @include breakpoint(desktop) {
     &:hover {
-      color: rgba($clr-vd-blue, 0.8);
-      border-color: rgba($clr-vd-blue, 0.8);
-    }
-  }
-
-  &--red {
-    border: 3px solid $clr-soft-red;
-    background-color: $clr-soft-red;
-    padding-block: 1em;
-    letter-spacing: 1px;
-
-    &:hover {
-      border-color: $clr-soft-red;
-      background-color: $clr-white;
       color: $clr-soft-red;
     }
   }
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  z-index: 1000;
-  background-color: $clr-white;
-}
-
-.nav {
-  @include flex($justify: space-between);
-  @include container($p-block: 4rem);
-
-  &__menu {}
-
-  &__menu-icon {
-    display: none;
-  }
-
-  &__logo {
-    cursor: pointer;
-  }
-
-  &__list {
-    @include flex();
-    overflow-y: hidden;
-  }
-
-  &__login {}
-
-  &__media {
-    display: none;
-  }
+img {
+  max-width: 100%;
 }
 
 /* -------------------hero------------------- */
@@ -359,158 +280,12 @@ img {
   }
 }
 
-/* ------------------footer------------------ */
-.contact {
-  @include flex($gap: 4rem);
-  @include container($p-block: 7rem);
-  background-color: $clr-soft-blue;
-  text-align: center;
 
-  &__record {
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 5px;
-  }
 
-  &__form {
-    @include flex($align: stretch);
-    width: 100%;
 
-    >* {
-      width: 100%;
-      min-height: 4.7rem;
-      font-size: 1.4rem;
-      font-family: inherit;
-    }
 
-  }
+@include breakpoint (mobile) {
 
-  &__email {
-    color: $clr-grayish-blue;
-    padding-inline: 2rem;
-    border-style: none;
-    border-radius: 5px;
-  }
-}
-
-.footer {
-  color: $clr-white;
-  overflow: hidden;
-  background-color: $clr-vd-blue;
-
-  &__nav {
-    @include flex($gap: 4.8rem);
-    @include container($p-block: 5.4rem);
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-  }
-
-  &__logo {
-    >g>path {
-      fill: $clr-white;
-    }
-  }
-
-  &__list {
-    @include flex($gap: 4rem);
-
-    :hover {
-      color: $clr-soft-red;
-    }
-  }
-
-  &__media {
-    @include flex($direct: row, $gap: 4.8rem);
-    height: 2.8rem;
-    flex-direction: row;
-    margin-top: 0.8rem;
-    cursor: pointer;
-
-    :hover {
-      color: $clr-soft-red;
-    }
-  }
-}
-
-@include breakpoint ('max-width:40.999em') {
-  .nav {
-    transition: all 250ms ease-out;
-
-    &__menu {
-      @include flex($direct: row, $justify: space-between);
-      width: 100%;
-      transition: all 250ms ease-out;
-    }
-
-    &__menu-icon {
-      display: block;
-      cursor: pointer;
-    }
-
-    &__logo {}
-
-    &__list {
-      gap: 0;
-      position: fixed;
-      top: 10.5rem;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      font-size: 2rem;
-      font-weight: 400;
-      @include container($p-block: 0 5rem);
-      color: $clr-white;
-      background-color: rgba($clr-vd-blue, 0.95);
-      opacity: 0;
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: all 250ms ease-out;
-    }
-
-    &__list>*:not(&__media) {
-      padding-block: 2.6rem;
-      border-top: 1px solid rgba($clr-grayish-blue, 0.3);
-      width: 100%;
-      text-align: center;
-    }
-
-    &__login {
-      display: block;
-      padding: 1.3rem;
-      font-weight: 500;
-      border: 3px solid $clr-white;
-      border-radius: 5px;
-    }
-
-    &__media {
-      @include flex($direct: row, $gap: 4rem);
-      color: $clr-white;
-      margin-top: auto;
-    }
-
-    &--active {
-      background-color: rgba($clr-vd-blue, 0.95);
-    }
-
-    &--active &__list {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    &--active &__logo {
-
-      >g>path,
-      circle {
-        fill: $clr-white;
-      }
-
-      circle+path {
-        fill: rgba($clr-vd-blue, 0.95);
-      }
-    }
-  }
 
   .illustration {
     &__btn {
@@ -519,42 +294,8 @@ img {
   }
 }
 
-@include breakpoint('min-width: 41em') {
-  .nav {
-    flex-direction: row;
-    padding-block: 3.2rem;
-    margin-inline: auto;
-    letter-spacing: 1px;
+@include breakpoint(desktop) {
 
-    &__list {
-      flex-direction: row;
-      justify-content: space-between;
-      width: min(62%, 55rem);
-      gap: 0;
-      font-size: 1.4rem;
-
-      a:hover {
-        color: $clr-soft-red;
-      }
-    }
-
-
-
-    &__login {
-      transition: all 250ms ease-in-out;
-      display: block;
-      padding: 1rem 2.4rem;
-      font-weight: 500;
-      background-color: $clr-soft-red;
-      color: $clr-white;
-      border: 3px solid $clr-soft-red;
-      border-radius: 5px;
-
-      &:hover {
-        background-color: $clr-white;
-      }
-    }
-  }
 
   .hero {
     flex-direction: row-reverse;
@@ -729,70 +470,4 @@ img {
       }
     }
   }
-
-  .contact {
-    gap: 3.6rem;
-
-    &__intro {
-      gap: 3.2rem;
-      width: min(100%, 43rem);
-      padding-inline: 0;
-      letter-spacing: 1px;
-    }
-
-
-    &__form {
-      flex-direction: row;
-      width: min(100%, 43rem);
-
-      >* {
-        padding-inline: 2rem;
-        width: auto;
-      }
-    }
-
-    &__email {
-      flex-grow: 1;
-      color: $clr-grayish-blue;
-      padding-inline: 2rem;
-      border-style: none;
-      border-radius: 5px;
-    }
-  }
-
-  .footer {
-    color: $clr-white;
-    overflow: hidden;
-
-    &__nav {
-      margin-inline: auto;
-      flex-direction: row;
-      font-size: 1.4rem;
-      gap: min(7%, 7rem);
-      padding-block: 3.2rem;
-    }
-
-    &__logo {
-      >g>path {
-        fill: $clr-white;
-      }
-    }
-
-    &__list {
-      flex-direction: row;
-      justify-content: space-between;
-      width: min(50%, 37rem);
-      gap: 0;
-
-    }
-
-    &__media {
-      margin-left: auto;
-      justify-content: space-between;
-      width: min(12%, 10rem);
-      gap: 0;
-    }
-  }
-
-
 }
