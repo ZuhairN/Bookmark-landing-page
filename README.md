@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshot
 
-<!-- ![](./screenshot.jpg) -->
+![desktop homepage](./images/Bookmark-landing-page.png)
 
 ### Link
 
@@ -37,8 +37,10 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- Vanilla CSS
+- CSS with Sass
 - Vanilla JavaScript
 - Mobile-first workflow
 
 ### Continued development
+
+- Sass Preprocessor

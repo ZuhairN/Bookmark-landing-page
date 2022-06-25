@@ -49,9 +49,9 @@
       <div class="hero__view">
         <img class="hero__img" src="./images/illustration-hero.svg" alt="illustration-hero" />
       </div>
-      <div class="hero__intro">
-        <div class="hero__content content">
-          <h1 class="heading heading--1">A Simple Bookmark Manager</h1>
+      <div class="hero__container">
+        <div class="hero__intro">
+          <h1 class="heading--1">A Simple Bookmark Manager</h1>
           <p class="para">
             A clean and simple interface to organize your favourite websites.
             Open a new browser tab and see your sites load instantly. Try it
@@ -66,8 +66,8 @@
     </div>
 
     <div class="features">
-      <div class="features__intro content">
-        <h2 class="heading heading--2">Features</h2>
+      <div class="features__intro">
+        <h2 class="heading--2">Features</h2>
         <p class="para">
           Our aim is to make it quick and easy for you to access your
           favourite websites. Your bookmarks sync between your devices so you
@@ -75,13 +75,13 @@
         </p>
       </div>
       <ul class="features__tab">
-        <li class="features__list list-1 features__list--active">
+        <li class="features__list active">
           <a href="">Simple Bookmarking</a>
         </li>
-        <li class="features__list list-2">
+        <li class="features__list">
           <a href="">Speedy Searching</a>
         </li>
-        <li class="features__list list-3">
+        <li class="features__list">
           <a href="">Easy Sharing</a>
         </li>
       </ul>
@@ -94,23 +94,23 @@
           <img class="illustration__img" src="./images/illustration-features-tab-3.svg" alt="illustration-view-3" />
         </div>
         <div class="illustration__container">
-          <div class="illustration__content content active">
-            <h2 class="heading heading--2">Bookmark in one click</h2>
+          <div class="illustration__intro active">
+            <h2 class="heading--2">Bookmark in one click</h2>
             <p class="para">
               Organize your bookmarks however you like. Our simple
               drag-and-drop interface gives you complete control over how you
               manage your favourite sites.
             </p>
           </div>
-          <div class="illustration__content content">
-            <h2 class="heading heading--2">Intelligent search</h2>
+          <div class="illustration__intro">
+            <h2 class="heading--2">Intelligent search</h2>
             <p class="para">
               Our powerful search feature will help you find saved sites in no
               time at all. No need to trawl through all of your bookmarks.
             </p>
           </div>
-          <div class="illustration__content content">
-            <h2 class="heading heading--2">Share your bookmarks</h2>
+          <div class="illustration__intro">
+            <h2 class="heading--2">Share your bookmarks</h2>
             <p class="para">
               Easily share your bookmarks and collections with others. Create
               a shareable link that you can send at the click of a button.
@@ -122,8 +122,8 @@
     </div>
 
     <div class="extension">
-      <div class="extension__intro content">
-        <h2 class="heading heading--2">Download the extension</h2>
+      <div class="extension__intro">
+        <h2 class="heading--2">Download the extension</h2>
         <p class="para">
           We’ve got more browsers in the pipeline. Please do let us know if
           you’ve got a favourite you’d like us to prioritize.
@@ -133,8 +133,8 @@
         <div class="card">
           <img src="./images/logo-chrome.svg" alt="logo-chrome" />
           <div class="card__content">
-            <h3 class="heading heading--3">Add to Chrome</h3>
-            <span class="para para--sm">Minimum version 62</span>
+            <h3 class="heading--3">Add to Chrome</h3>
+            <span class="para--sm">Minimum version 62</span>
           </div>
           <div class="card__button">
             <img src="./images/bg-dots.svg" alt="bg-dots" />
@@ -144,8 +144,8 @@
         <div class="card">
           <img src="./images/logo-firefox.svg" alt="logo-firefox" />
           <div class="card__content">
-            <h3 class="heading heading--3">Add to Firefox</h3>
-            <span class="para para--sm">Minimum version 55</span>
+            <h3 class="heading--3">Add to Firefox</h3>
+            <span class="para--sm">Minimum version 55</span>
           </div>
           <div class="card__button">
             <img src="./images/bg-dots.svg" alt="bg-dots" />
@@ -155,8 +155,8 @@
         <div class="card">
           <img src="./images/logo-opera.svg" alt="logo-opera" />
           <div class="card__content">
-            <h3 class="heading heading--3">Add to Opera</h3>
-            <span class="para para--sm">Minimum version 46</span>
+            <h3 class="heading--3">Add to Opera</h3>
+            <span class="para--sm">Minimum version 46</span>
           </div>
           <div class="card__button">
             <img src="./images/bg-dots.svg" alt="bg-dots" />
@@ -167,8 +167,8 @@
     </div>
 
     <div class="FAQ">
-      <div class="FAQ__intro content">
-        <h2 class="heading heading--2">Frequently Asked Questions</h2>
+      <div class="FAQ__intro">
+        <h2 class="heading--2">Frequently Asked Questions</h2>
         <p class="para">
           Here are some of our FAQs. If you have any other questions you’d
           like answered please feel free to email us.
@@ -180,7 +180,7 @@
             <h4 class="tab__Q">What is Bookmark?</h4>
             <i class="tab__open fa-solid fa-angle-down fa-xl"></i>
           </div>
-          <p class="para para--dark tab__answer">
+          <p class="tab__answer">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
             tincidunt justo eget ultricies fringilla. Phasellus blandit ipsum
             quis quam ornare mattis.
@@ -191,7 +191,7 @@
             <h4 class="tab__Q">How can I request a new browser?</h4>
             <i class="tab__open fa-solid fa-angle-down fa-xl"></i>
           </div>
-          <p class="para para--dark tab__answer">
+          <p class="tab__answer">
             Vivamus luctus eros aliquet convallis ultricies. Mauris augue
             massa, ultricies non ligula. Suspendisse imperdiet. Vivamus luctus
             eros aliquet convallis ultricies. Mauris augue massa, ultricies
@@ -205,7 +205,7 @@
             <h4 class="tab__Q">Is there a mobile app?</h4>
             <i class="tab__open fa-solid fa-angle-down fa-xl"></i>
           </div>
-          <p class="para para--dark tab__answer">
+          <p class="tab__answer ">
             Sed consectetur quam id neque fermentum accumsan. Praesent luctus
             vestibulum dolor, ut condimentum urna vulputate eget. Cras in
             ligula quis est pharetra mattis sit amet pharetra purus. Sed
@@ -217,7 +217,7 @@
             <h4 class="tab__Q">What about other Chromium browsers?</h4>
             <i class="tab__open fa-solid fa-angle-down fa-xl"></i>
           </div>
-          <p class="tab__answer para para--dark">
+          <p class="tab__answer">
             Integer condimentum ipsum id imperdiet finibus. Vivamus in
             placerat mi, at euismod dui. Aliquam vitae neque eget nisl gravida
             pellentesque non ut velit.
@@ -232,12 +232,17 @@
     <div class="contact">
       <div class="contact__intro">
         <span class="contact__record">35,000+ already joined</span>
-        <h2 class="heading heading--2 heading--white">
+        <h2 class="heading--2 heading--white">
           Stay up-to-date with what we’re doing
         </h2>
       </div>
       <form action="" class="contact__form">
-        <input class="contact__email" type="email" name="email" placeholder="Enter your email address" />
+        <div class="contact__email-container">
+          <input class="contact__email" type="email" name="email" placeholder="Enter your email address"
+            autocomplete="off" />
+          <p class="contact__error"></p>
+          <img class="contact__error-icon" src="./images/icon-error.svg" alt="icon-error">
+        </div>
         <button class="btn--red">Contact Us</button>
       </form>
     </div>

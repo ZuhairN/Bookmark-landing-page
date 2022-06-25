@@ -1,0 +1,75 @@
+@use '../abstracts' as *;
+@use '../base' as *;
+
+.hero {
+    @include flex($justify: space-between, $gap: 7.2rem);
+
+    @include breakpoint(desktop) {
+        flex-direction: row-reverse;
+        gap: 0;
+        width: 100%;
+        margin-top: 5rem;
+
+        >* {
+            flex-basis: 100%;
+        }
+    }
+
+    &__view {
+        @include background($top: 22%, $right: -3.2rem, $left: auto, $border-tr: 0, $border-br: 0, $border-bl: 18vw, $width: 90%, $height: 80%);
+        display: flex;
+        position: relative;
+
+        @include breakpoint(desktop) {
+            max-width: 65.7rem;
+
+            &::after {
+                border-bottom-left-radius: min(10vw, 13rem);
+                top: 30%;
+                height: 75%;
+                width: 73%;
+                right: -6vw;
+            }
+        }
+    }
+
+    &__img {
+        position: relative;
+        right: 3.2rem;
+        max-width: calc(100% + 6.4rem);
+
+        @include breakpoint(desktop) {
+            right: -4vw;
+            min-width: 27rem;
+        }
+    }
+
+    &__container {
+        @include flex($align: start, $gap: 4.8rem);
+
+        @include breakpoint(desktop) {
+            min-width: 30rem;
+            text-align: left;
+        }
+    }
+
+    &__intro {
+        @extend %intro;
+    }
+
+    &__links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.6rem;
+
+        @include breakpoint(mobile) {
+            width: 100%;
+        }
+
+        @include breakpoint(desktop) {
+            >* {
+                padding-inline: min(1.4vw, 2.4rem);
+            }
+        }
+    }
+}

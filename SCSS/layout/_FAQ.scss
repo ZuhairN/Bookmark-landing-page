@@ -1,0 +1,73 @@
+@use '../abstracts' as *;
+@use '../base' as *;
+
+.FAQ {
+    @include flex($gap: 7rem);
+
+    &__intro {
+        @extend %intro;
+    }
+
+    &__list {
+        @include flex($align: stretch, $gap: 0);
+
+        @include breakpoint(desktop) {
+            max-width: 57rem;
+        }
+    }
+}
+
+.tab {
+    @include flex($align: stretch, $gap: 0);
+    padding-block: 2.4rem;
+    border-bottom: 1px solid rgba($clr-grayish-blue, 0.3);
+    text-align: left;
+
+    @include breakpoint(desktop) {
+        padding-right: 2rem;
+
+        &:first-of-type {
+            border-top: 1px solid rgba($clr-grayish-blue, 0.3);
+        }
+    }
+
+    &__question {
+        @include flex($direct: row, $justify: space-between, $gap: 0);
+        font-size: clamp(1.5rem, 1rem + 1vw, 1.8rem);
+        cursor: pointer;
+
+        >* {
+            pointer-events: none;
+        }
+    }
+
+    &__question:hover &__Q {
+        color: $clr-soft-red;
+    }
+
+    &__open {
+        color: $clr-soft-blue;
+        transition: all 500ms ease-in-out;
+    }
+
+    &.active &__open {
+        color: $clr-soft-red;
+        transform: rotate(180deg);
+    }
+
+    &__answer {
+        @extend .para;
+        color: rgba($clr-vd-blue, 0.7);
+        overflow: hidden;
+        opacity: 0;
+        max-height: 0;
+        transition: all 250ms 250ms ease-in-out, opacity 250ms ease-in-out;
+    }
+
+    &.active &__answer {
+        padding-top: 2.4rem;
+        opacity: 1;
+        max-height: 50rem;
+        transition: all 250ms ease-in-out, opacity 250ms 250ms ease-in-out;
+    }
+}
