@@ -62,6 +62,14 @@
         opacity: 0;
         max-height: 0;
         transition: all 250ms 250ms ease-in-out, opacity 250ms ease-in-out;
+
+        a {
+            color: $clr-vd-blue;
+        }
+
+        a:hover {
+            color: $clr-soft-red;
+        }
     }
 
     &.active &__answer {

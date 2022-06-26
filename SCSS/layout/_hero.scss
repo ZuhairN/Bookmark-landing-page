@@ -45,7 +45,7 @@
     }
 
     &__container {
-        @include flex($align: start, $gap: 4.8rem);
+        @include flex($align: flex-start, $gap: 4.8rem);
 
         @include breakpoint(desktop) {
             min-width: 30rem;

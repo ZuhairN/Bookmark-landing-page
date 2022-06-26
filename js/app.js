@@ -7,9 +7,11 @@ const imgs = document.querySelectorAll('.illustration__img');
 const contents = document.querySelectorAll('.illustration__intro');
 const QList = document.querySelector('.FAQ__list');
 const form = document.querySelector('.contact__form');
+const trigger = document.querySelector('.contact__container');
 const error = document.querySelector('.contact__error');
-const mailContainer = document.querySelector('.contact__email-container');
-const eIcon = document.querySelector('.contact__error-icon');
+
+const regex =
+  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 menu.addEventListener('click', () => {
   nav.classList.toggle('active');
@@ -37,7 +39,6 @@ tabs.addEventListener('click', (e) => {
       }
     }
     tab.parentElement.classList.add('active');
-    console.log(tab.parentElement);
   }
 });
 
@@ -51,20 +52,25 @@ QList.addEventListener('click', (e) => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = e.target.elements.email;
-  console.log(email);
-  if (email.value === '') {
+  if (email.value === '' || !regex.test(email.value)) {
     email.setAttribute('placeholder', 'example@email/com');
-    email.classList.add('empty');
-    error.classList.add('active');
-    error.textContent = 'Woops, make sure to add your email';
-    eIcon.classList.add('active');
-    mailContainer.classList.add('active');
+    trigger.classList.add('invalid');
+    if (email.value === '') {
+      error.textContent = "Woops, make sure it's not empty";
+    } else {
+      error.textContent = "Woops, make sure it's an email";
+    }
   } else {
-    email.classList.remove('empty');
-    error.classList.remove('active');
-    eIcon.classList.remove('active');
-    mailContainer.classList.remove('active');
-    email.value = '';
     email.setAttribute('placeholder', 'Enter your email address');
+    trigger.classList.remove('invalid');
+    error.textContent = 'Yippee, thanks for subscribing!';
+
+    setTimeout(() => {
+      trigger.classList.add('valid');
+      setTimeout(() => {
+        trigger.classList.remove('valid');
+      }, 5000);
+    }, 300);
+    email.value = '';
   }
 });

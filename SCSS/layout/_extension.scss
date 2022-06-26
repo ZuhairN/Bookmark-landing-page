@@ -9,7 +9,7 @@
     }
 
     &__links {
-        @include flex($align: start, $gap: 3.6rem);
+        @include flex($align: flex-start, $gap: 3.6rem);
 
         @include breakpoint(desktop) {
             flex-direction: row;

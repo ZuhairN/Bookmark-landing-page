@@ -45,7 +45,6 @@
             width: 46%;
             height: 4px;
             background-color: $clr-soft-red;
-            opacity: 0.1;
             transform: scaleX(0);
             transition: all 250ms ease-out;
 
@@ -59,7 +58,6 @@
             color: $clr-vd-blue;
 
             &::after {
-                opacity: 1;
                 transform: scaleX(1);
             }
 
@@ -75,16 +73,9 @@
     @include flex($gap: 10rem);
     width: 100%;
 
-
-    @include breakpoint(mobile) {
-        .btn--blue {
-            display: none;
-        }
-    }
-
     @include breakpoint(desktop) {
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         gap: 6vw;
         margin-block: 3.2rem 7rem;
 
@@ -109,8 +100,8 @@
         @include breakpoint(desktop) {
             height: min(25vw, 33rem);
             max-width: 41vw;
-            justify-content: start;
-            align-self: start;
+            justify-content: flex-start;
+            align-self: flex-start;
 
             &::after {
                 top: 30%;
@@ -157,9 +148,10 @@
 
         @include breakpoint(desktop) {
             @include flex($align: flex-start, $gap: 4rem);
-            align-self: center;
+            align-self: flex-start;
             min-width: 28rem;
             max-width: 45rem;
+            margin-top: 5vw;
             text-align: left;
         }
     }
@@ -170,14 +162,29 @@
         transform: scale(.9);
         transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
 
+        @include breakpoint(mobile) {
+            .btn--blue {
+                display: none;
+            }
+        }
+
+        @include breakpoint(desktop) {
+            .btn--blue {
+                margin-top: 1.6rem;
+                align-self: flex-start;
+            }
+        }
+
         &:not(.active) {
             position: absolute;
             top: 0;
             left: 0;
+            pointer-events: none;
         }
 
         &.active {
             opacity: 1;
+            pointer-events: all;
             transform: scale(1);
             transition: transform 500ms 500ms ease-in-out, opacity 500ms 500ms ease-in-out;
         }
